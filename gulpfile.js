@@ -11,11 +11,15 @@ gulp.task('views', function() {
 });
 
 gulp.task('styles', function () {
-  return gulp.src('app/styles/main.scss')
+  // return gulp.src('app/styles/main.scss')
+  return gulp.src('app/styles/main.less')
     .pipe($.plumber())
-    .pipe($.rubySass({
-      style: 'expanded',
-      precision: 10
+    // .pipe($.rubySass({
+    //   style: 'expanded',
+    //   precision: 10
+    // }))
+    .pipe($.less({
+      paths: ['.']
     }))
     .pipe($.autoprefixer({browsers: ['last 1 version']}))
     .pipe(gulp.dest('.tmp/styles'));
@@ -101,7 +105,8 @@ gulp.task('serve', ['connect', 'watch'], function () {
 gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
 
-  gulp.src('app/styles/*.scss')
+  // gulp.src('app/styles/*.scss')
+  gulp.css('app/styles/*.less')
     .pipe(wiredep())
     .pipe(gulp.dest('app/styles'));
 
@@ -123,7 +128,8 @@ gulp.task('watch', ['connect'], function () {
   ]).on('change', $.livereload.changed);
 
   gulp.watch('app/**/*.jade', ['views']);
-  gulp.watch('app/styles/**/*.scss', ['styles']);
+  // gulp.watch('app/styles/**/*.scss', ['styles']);
+  gulp.watch('app/styles/**/*.less', ['styles']);
   gulp.watch('bower.json', ['wiredep']);
 });
 

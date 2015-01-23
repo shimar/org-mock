@@ -1,11 +1,16 @@
-$icon-font-path: '../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/';
 
-/* override the bootstraps' variables. */
-$navbar-height: 44px;
+// override the bootstraps' variables.
+@navbar-height: 44px;
+@icon-font-path: '../bower_components/bootstrap/fonts/';
+
 
 // bower:scss
-@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "../../bower_components/bootstrap/less/bootstrap.less";
+@import "../../bower_components/fontawesome/less/font-awesome.less";
 // endbower
+
+// overide the fontawesomes' variables.
+@fa-font-path: "../bower_components/fontawesome/fonts/";
 
 .browsehappy {
   margin: 0.2em 0;
