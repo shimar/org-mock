@@ -3,11 +3,17 @@ extends layouts/default
 
 block content
   .row
-    .col-md-6
+    .col-md-1
+    .col-md-5
       #tasks
         each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-          .panel.panel-default(id='task' + val)
-            .panel-body= 'task' + val
+          a(href='#')
+            .panel.panel-default(id='task' + val)
+              .panel-body
+                .row
+                  .col-md-1
+                    i.fa.fa-lg.fa-square-o
+                  .col-md-11= 'task' + val
 
     .col-md-6
       #agenda
