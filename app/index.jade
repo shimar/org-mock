@@ -10,7 +10,7 @@ block content
           .panel-body
             .row
               .col-md-11
-              .col-md-1
+              .col-md-1.add-task
                 i.fa.fa-plus
         each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
           .panel.panel-default.task-panel(id='task' + val)
@@ -19,7 +19,7 @@ block content
                 .col-sm-1.status
                   i.fa.fa-lg.fa-square-o
                 .col-sm-8.item
-                   span.label.label-info project
+                   span.label.label-default project
                    span.item-text= 'task' + val
                 .col-sm-2
                   | 2015-01-15
