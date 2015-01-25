@@ -7,13 +7,16 @@
 // endbower
 
 // override the bootstraps' variables.
-@body-bg: #34c6cd;
+@brand-primary: #035CA6;
+
+@body-bg: darken(@brand-primary, 8);
 // @font-family-sans-serif: "Open Sans Condensed", sans-serif;
 @font-family-sans-serif: 'Titillium Web', sans-serif;
-@navbar-default-bg:  #34c6cd;
+@navbar-default-bg:    @body-bg;
 @navbar-default-color: #fff;
 @navbar-default-link-color: #fff;
 @navbar-height:      32px;
+
 @icon-font-path:     '../bower_components/bootstrap/fonts/';
 
 // overide the fontawesomes' variables.
@@ -28,7 +31,7 @@
 
 /* Space out content a bit */
 body {
-  /* padding-top: 20px; */
+  padding-top: 70px;
   /* padding-bottom: 20px; */
 }
 
@@ -74,11 +77,35 @@ body {
   }
 }
 
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-  p + h4 {
-    margin-top: 28px;
+#tasks {
+  .panel {
+    color: #fff;
+    background-color: rgba(3, 92, 166, .8);
+    border: solid 1px #035ca6;
+    padding: 0;
+    .panel-body {
+      padding: 8px
+    }
+    .status {
+      padding-right: 0;
+      a {
+        color: #fff;
+      }
+    }
+    .item {
+      padding-left: 0;
+      .item-text {
+        margin-left: 8px;
+      }
+    }
+  }
+}
+
+#agenda {
+  .table {
+    td {
+      color: #fff;
+    }
   }
 }
 
