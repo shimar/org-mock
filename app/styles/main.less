@@ -8,16 +8,16 @@
 
 // override the bootstraps' variables.
 @brand-primary: #035CA6;
-
 @body-bg: darken(@brand-primary, 8);
 // @font-family-sans-serif: "Open Sans Condensed", sans-serif;
 @font-family-sans-serif: 'Titillium Web', sans-serif;
+@icon-font-path:     '../bower_components/bootstrap/fonts/';
+
+@border-radius-base: 2px;
 @navbar-default-bg:    @body-bg;
 @navbar-default-color: #fff;
 @navbar-default-link-color: #fff;
 @navbar-height:      32px;
-
-@icon-font-path:     '../bower_components/bootstrap/fonts/';
 
 // overide the fontawesomes' variables.
 @fa-font-path: "../bower_components/fontawesome/fonts/";
@@ -77,13 +77,21 @@ body {
   }
 }
 
+@task-panel-bg: rgba(3, 92, 166, .75);
 #tasks {
   .panel {
     color: #fff;
-    background-color: rgba(3, 92, 166, .8);
+    background-color: @task-panel-bg;
     border: solid 1px #035ca6;
+    margin-bottom: 8px;
     padding: 0;
     .panel-body {
+      padding: 8px
+    }
+    .panel-footer {
+      color: #fff;
+      background-color: transparent;
+      border-top: none;
       padding: 8px
     }
     .status {
