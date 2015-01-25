@@ -10,7 +10,7 @@ function initTasks() {
 
   $('.task-panel .arrow').bind('click', function(e) {
     $('i', this).toggleClass('fa-rotate-90');
-    $('.panel-footer', $(this).parents('.task-panel')).toggle();
+    $('.panel-footer', $(this).parents('.task-panel')).slideToggle('fast');
   });
 };
 
