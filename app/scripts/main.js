@@ -12,6 +12,10 @@ function initTasks() {
     $('i', this).toggleClass('fa-rotate-90');
     $('.panel-footer', $(this).parents('.task-panel')).slideToggle('fast');
   });
+
+  $('.task-panel .trash').bind('click', function(e) {
+    $(this).parents('.task-panel').fadeOut('slow');
+  });
 };
 
 $(function() {
