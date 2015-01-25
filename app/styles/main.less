@@ -8,6 +8,9 @@
 
 // override the bootstraps' variables.
 @brand-primary: #035CA6;
+@brand-success: #36d796;
+@state-success-text: @brand-success;
+
 @body-bg: darken(@brand-primary, 8);
 // @font-family-sans-serif: "Open Sans Condensed", sans-serif;
 @font-family-sans-serif: 'Titillium Web', sans-serif;
@@ -85,6 +88,9 @@ body {
     border: solid 1px #035ca6;
     margin-bottom: 8px;
     padding: 0;
+    a {
+      color: #fff;
+    }
     .panel-body {
       padding: 8px
     }
@@ -96,15 +102,16 @@ body {
     }
     .status {
       padding-right: 0;
-      a {
-        color: #fff;
-      }
+      cursor: pointer;
     }
     .item {
       padding-left: 0;
       .item-text {
         margin-left: 8px;
       }
+    }
+    .arrow {
+      cursor: pointer;
     }
   }
 }

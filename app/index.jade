@@ -7,20 +7,19 @@ block content
     .col-md-5
       #tasks
         each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-          .panel.panel-default(id='task' + val)
+          .panel.panel-default.task-panel(id='task' + val)
             .panel-body
               .row
                 .col-sm-1.status
-                  a(href='javascript:void(0)')
-                    i.fa.fa-lg.fa-square-o
+                  i.fa.fa-lg.fa-square-o
                 .col-sm-8.item
                    span.label.label-info project
                    span.item-text= 'task' + val
                 .col-sm-2
                   | 2015-01-15
-                .col-sm-1.text-center
+                .col-sm-1.arrow.text-center
                   i.fa.fa-lg.fa-angle-right
-            .panel-footer
+            .panel-footer(style='display:none')
               .row
                 .col-sm-11
                 .col-sm-1
