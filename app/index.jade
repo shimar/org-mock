@@ -6,6 +6,12 @@ block content
     .col-md-1
     .col-md-5
       #tasks
+        .panel.panel-primary.new-task
+          .panel-body
+            .row
+              .col-md-11
+              .col-md-1
+                i.fa.fa-plus
         each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
           .panel.panel-default.task-panel(id='task' + val)
             .panel-body
