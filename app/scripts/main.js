@@ -1,5 +1,12 @@
 /* jshint devel:true */
 
+function initTaskForm() {
+  var inputTitle = $('#title-input');
+  inputTitle.bind('focus', function(e) {
+    $('#item-form-bottom').slideDown();
+  });
+};
+
 function initTasks() {
   var tasks = $('task-panel');
   $('.task-panel .status').bind('click', function(e) {
@@ -19,5 +26,6 @@ function initTasks() {
 };
 
 $(function() {
+  initTaskForm()
   initTasks();
 });

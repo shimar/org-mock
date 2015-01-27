@@ -9,9 +9,20 @@ block content
         .panel.panel-primary.new-task
           .panel-body
             .row
-              .col-md-11
-              .col-md-1.add-task
-                i.fa.fa-plus
+              .col-md-12
+                .form-group
+                  input#title-input(type='text').form-control
+                #item-form-bottom.form-inline(style='display:none')
+                  .form-group
+                    .input-group
+                      input(type='text').form-control
+                      span.input-group-btn
+                        button(type='button').btn.btn-default
+                          i.fa.fa-calendar
+                    btn(type='button').btn.btn-primary
+                      i.fa.fa-plus
+                      | &nbsp;Add
+                
         each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
           .panel.panel-default.task-panel(id='task' + val)
             .panel-body
