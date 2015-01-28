@@ -2,8 +2,16 @@
 
 function initTaskForm() {
   var inputTitle = $('#title-input');
+  var addButton  = $('#add-btn');
   inputTitle.bind('focus', function(e) {
-    $('#item-form-bottom').slideDown();
+    $('#item-form-bottom').slideDown('fast');
+  });
+
+  addButton.bind('click', function(e) {
+    console.log('add button clicked');
+    console.log(inputTitle);
+    inputTitle.val('');
+    $('#item-form-bottom').slideUp('fast');
   });
 };
 
