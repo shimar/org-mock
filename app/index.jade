@@ -5,7 +5,7 @@ block content
   .row
     .col-md-1
     .col-md-5
-      #tasks
+      #task-form-block
         .panel.panel-primary.new-task
           .panel-body
             .row
@@ -23,6 +23,7 @@ block content
                       i.fa.fa-plus
                       | &nbsp;Add
                 
+      #tasks
         each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
           .panel.panel-default.task-panel(id='task' + val)
             .panel-body
@@ -47,8 +48,13 @@ block content
         table.table
           tbody
             tr
-              td
-              td
+              td(colspan=2)
+                .panel
+                  .panel-body
+                    | 掃除する日
+                .panel
+                  .panel-body
+                    | 気合を入れる月間
             - var hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
             each val in hours
               tr

@@ -81,7 +81,7 @@ body {
 }
 
 @task-panel-bg: rgba(3, 92, 166, .75);
-#tasks {
+#tasks, #task-form-block {
   .panel {
     color: #fff;
     background-color: @task-panel-bg;
@@ -122,12 +122,21 @@ body {
   }
 }
 
+@event-panel-bg: @task-panel-bg;
 #agenda {
   .table {
     td {
       color: #fff;
       &.harf-hour {
         border-top: dashed 1px #aaa;
+      }
+      .panel {
+        background-color: @event-panel-bg;
+        margin-bottom: 4px;
+        padding: 0;
+      }
+      .panel-body {
+        padding: 4px 8px;
       }
     }
   }
