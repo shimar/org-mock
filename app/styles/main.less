@@ -25,6 +25,12 @@
 // overide the fontawesomes' variables.
 @fa-font-path: "../bower_components/fontawesome/fonts/";
 
+[draggable] {
+ user-select: none;
+ -khtml-user-drag: element;
+ -webkit-user-drag: element;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -124,22 +130,37 @@ body {
 
 @event-panel-bg: @task-panel-bg;
 #agenda {
-  .table {
-    td {
-      color: #fff;
-      &.harf-hour {
-        border-top: dashed 1px #aaa;
-      }
-      .panel {
-        background-color: @event-panel-bg;
-        margin-bottom: 4px;
-        padding: 0;
-      }
-      .panel-body {
-        padding: 4px 8px;
-      }
+    position: relative;
+    
+    .event-item {
+        cursor: move;
+        display: block;
+        resize: vertical;
+        overflow: auto;
+        position: absolute;
+        top: 0;
     }
-  }
+
+    .panel {
+        color: #fff;
+        background-color: @event-panel-bg;
+        padding: 0;
+        .panel-body {
+            padding: 4px 8px;
+        }
+    }
+
+    .table {
+        td {
+            color: #fff;
+            padding: 0;
+            height:     30px;
+            min-height: 30px;
+            &.harf-hour {
+                border-top: dashed 1px #aaa;
+            }
+        }
+    }
 }
 
 /* Responsive: Portrait tablets and up */

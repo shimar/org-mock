@@ -49,17 +49,26 @@ block content
           tbody
             tr
               td(colspan=2)
-                .panel
-                  .panel-body
-                    | 掃除する日
-                .panel
-                  .panel-body
-                    | 気合を入れる月間
+                // .panel(draggable="true").event-item
+                //   .panel-body
+                //     | 掃除する日
+                // .panel(draggable="true").event-item
+                //   .panel-body
+                //     | 気合を入れる月間
             - var hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
             each val in hours
               tr
                 td(rowspan=2, width='32')= ('00' + val).slice(-2)
-                td
+                td.timetable
+                  // .panel(id="item-" + val, draggable="true").event-item
+                  //   .panel-body= ('event' + val)
+                  
               tr
-                td.harf-hour
-              
+                td.harf-hour.timetable
+
+        // #item-01.panel(draggable="true").event-item
+        //   .panel-body
+        //     | 掃除する日
+        // #item-02.panel(draggable="true", style="left: 90px").event-item
+        //   .panel-body
+        //     | 気合を入れる月間
