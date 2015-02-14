@@ -1,4 +1,15 @@
 #tasks.col-md-6
+  .summary
+    h1.text-center 10%&nbsp;
+      small [1/10]
+    .progress
+      .progress-bar(role='progressbar',
+        aria-valuenow='10',
+        aria-valuemin='0',
+        aria-valuemax='100',
+        style='width: 10%;')
+          span.sr-only 10% completed
+      
   each val in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     .panel.panel-default.task-panel(id='task' + val)
       .panel-body
