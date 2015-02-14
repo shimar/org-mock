@@ -11,15 +11,15 @@
 @brand-success: #36d796;
 @state-success-text: @brand-success;
 
-@body-bg: darken(@brand-primary, 8);
+@body-bg: #000;
 // @font-family-sans-serif: "Open Sans Condensed", sans-serif;
 @font-family-sans-serif: 'Titillium Web', sans-serif;
 @icon-font-path:     '../bower_components/bootstrap/fonts/';
 
 // @border-radius-base: 2px;
-@navbar-default-bg:    @body-bg;
-@navbar-default-color: #fff;
-@navbar-default-link-color: #fff;
+// @navbar-default-bg:    @body-bg;
+// @navbar-default-color: #fff;
+// @navbar-default-link-color: #fff;
 @navbar-height:      32px;
 
 // overide the fontawesomes' variables.
@@ -40,8 +40,9 @@
 
 /* Space out content a bit */
 body {
-  padding-top: 70px;
+  // padding-top: 70px;
   /* padding-bottom: 20px; */
+  // background-image: url(/images/dark_Tire/dark_Tire.png);
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -86,22 +87,37 @@ body {
   }
 }
 
+.sidebar {
+  padding-top: 15px;
+  .list-group-item {
+    color: #fff;
+    background-color: transparent;
+    border-radius: 0px !important;
+    border: none !important;
+  }
+}
+
+.main {
+  background-image: url(/images/dark_Tire/dark_Tire.png);
+  padding-top: 15px;
+}
+
 @task-panel-bg: rgba(3, 92, 166, .75);
 #tasks, #task-form-block {
   .panel {
-    color: #fff;
-    background-color: @task-panel-bg;
-    border: solid 1px #035ca6;
+    // color: #fff;
+    // background-color: @task-panel-bg;
+    // border: solid 1px #035ca6;
     margin-bottom: 8px;
     padding: 0;
     a {
-      color: #fff;
+      // color: #fff;
     }
     .panel-body {
       padding: 8px
     }
     .panel-footer {
-      color: #fff;
+      // color: #fff;
       background-color: transparent;
       border-top: none;
       padding: 8px
@@ -128,10 +144,12 @@ body {
   }
 }
 
+@agenda-color:   #777;
 @event-panel-bg: @task-panel-bg;
 #agenda {
     position: relative;
-    
+    color: @agenda-color;
+
     .event-item {
         cursor: move;
         display: block;
@@ -152,12 +170,12 @@ body {
 
     .table {
         td {
-            color: #fff;
+            // color: #fff;
             padding: 0;
             height:     30px;
             min-height: 30px;
             &.harf-hour {
-                border-top: dashed 1px #aaa;
+              border-top: dashed 1px @agenda-color;
             }
         }
     }
