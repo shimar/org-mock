@@ -21,6 +21,12 @@ function initTasks() {
     $('i', this).toggleClass('text-success');
     $('i', this).toggleClass('fa-square-o');
     $('i', this).toggleClass('fa-check-square-o');
+    $(this).parents('.task-panel').one('animationend', function() {
+      $('.tasks').append($(this));
+      $(this).removeClass('animated fadeOutLeftBig');
+      $(this).addClass('animated fadeInLeftBig');
+    });
+    $(this).parents('.task-panel').addClass('animated fadeOutLeftBig');
   });
 
   $('.task-panel .arrow').bind('click', function(e) {
