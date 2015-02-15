@@ -104,7 +104,7 @@ body {
       position: absolute;
       left: 0;
       width: 100%;
-      margin: auto;
+      margin: 6px auto 0 auto;
       text-align: center;
       height: 100%;
     }
@@ -115,8 +115,11 @@ body {
 #tasks, #task-form-block {
   .summary {
     color: #fff;
-    #ratio {
-      margin-right: 12px;
+    h1 {
+      margin-top: 0;
+      #ratio {
+        margin-right: 12px;
+      }
     }
     .progress {
       height: 6px;
@@ -168,6 +171,8 @@ body {
 #agenda {
     position: relative;
     color: @agenda-color;
+    height: 624px;
+    overflow-y: hidden;
 
     .event-item {
         cursor: move;
