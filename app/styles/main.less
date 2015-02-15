@@ -102,18 +102,21 @@ body {
   padding-top: 15px;
 }
 
-@task-panel-bg: rgba(3, 92, 166, .75);
+@task-panel-bg: rgba(220, 220, 220, .20);
 #tasks, #task-form-block {
   .summary {
     color: #fff;
+    #ratio {
+      margin-right: 12px;
+    }
     .progress {
       height: 6px;
     }
   }
   .panel {
-    // color: #fff;
-    // background-color: @task-panel-bg;
-    // border: solid 1px #035ca6;
+    color: #fff;
+    background-color: @task-panel-bg;
+    border: solid 1px #000;
     border-radius: 2px;
     margin-bottom: 8px;
     padding: 0;
