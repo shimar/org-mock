@@ -50,6 +50,22 @@ function completeTask($taskPanel) {
 };
 
 /**
+ * タスク未完了時処理。
+ */
+function incompleteTask($taskPanel) {
+  // icon変更
+  var icon = $('.status i', $taskPanel);
+  icon.toggleClass('text-success').toggleClass('fa-square-o').toggleClass('fa-check-square-o');
+  $taskPanel.one('animationend', function() {
+    $('.tasks').prepend($(this));
+    $(this).removeClass('animated fadeOutLeftBig');
+    $(this).addClass('animated fadeInLeftBig');
+  });
+  $taskPanel.addClass('animated fadeOutLeftBig');
+  initTasksSummary();
+};
+
+/**
  * タスク削除時処理。
  */
 function removeTask($taskPanel) {
@@ -57,13 +73,18 @@ function removeTask($taskPanel) {
     $(this).remove();
     initTasksSummary();
   });
-  $taskPanel.addClass('animated zoomOutDown');
+  $taskPanel.addClass('animated zoomOut');
 };
 
 function initTasks() {
   var tasks = $('.task-panel');
   $('.task-panel .status').bind('click', function(e) {
-    completeTask($(this).parents('.task-panel'));
+    var taskPanel = $(this).parents('.task-panel');
+    if ($('i.fa-check-square-o', taskPanel).length === 0) {
+      completeTask(taskPanel);
+    } else {
+      incompleteTask(taskPanel);
+    }
   });
 
   $('.task-panel .arrow').bind('click', function(e) {
