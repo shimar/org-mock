@@ -15,18 +15,55 @@ function initTaskForm() {
   });
 };
 
+/**
+ * タスクサマリ初期化。
+ */
+function initTasksSummary() {
+  var tasks     = $('.task-panel');
+  var completed = $('i.fa-check-square-o', tasks);
+  var total = tasks.length;
+  var done  = completed.length;
+  var ratio = Math.round((done / total) * 100);
+  var ratioElem = $('#ratio');
+  ratioElem.html(ratio + '%');
+  $('.summary h1 small').html('[' + done + '/' + total + ']');
+  // update progressbar
+  var progressbar = $('.progress-bar');
+  progressbar.attr('aria-valuenow', ratio);
+  progressbar.attr('style', 'width: ' + ratio + '%');
+};
+
+/**
+ * タスク完了時処理。
+ */
+function completeTask($taskPanel) {
+  // icon変更
+  var icon = $('.status i', $taskPanel);
+  icon.toggleClass('text-success').toggleClass('fa-square-o').toggleClass('fa-check-square-o');
+  $taskPanel.one('animationend', function() {
+    $('.tasks').append($(this));
+    $(this).removeClass('animated fadeOutLeftBig');
+    $(this).addClass('animated fadeInLeftBig');
+  });
+  $taskPanel.addClass('animated fadeOutLeftBig');
+  initTasksSummary();
+};
+
+/**
+ * タスク削除時処理。
+ */
+function removeTask($taskPanel) {
+  $taskPanel.one('animationend', function() {
+    $(this).remove();
+    initTasksSummary();
+  });
+  $taskPanel.addClass('animated zoomOutDown');
+};
+
 function initTasks() {
-  var tasks = $('task-panel');
+  var tasks = $('.task-panel');
   $('.task-panel .status').bind('click', function(e) {
-    $('i', this).toggleClass('text-success');
-    $('i', this).toggleClass('fa-square-o');
-    $('i', this).toggleClass('fa-check-square-o');
-    $(this).parents('.task-panel').one('animationend', function() {
-      $('.tasks').append($(this));
-      $(this).removeClass('animated fadeOutLeftBig');
-      $(this).addClass('animated fadeInLeftBig');
-    });
-    $(this).parents('.task-panel').addClass('animated fadeOutLeftBig');
+    completeTask($(this).parents('.task-panel'));
   });
 
   $('.task-panel .arrow').bind('click', function(e) {
@@ -35,10 +72,7 @@ function initTasks() {
   });
 
   $('.task-panel .trash').bind('click', function(e) {
-    $(this).parents('.task-panel').one('animationend', function() {
-      $(this).remove();
-    });
-    $(this).parents('.task-panel').addClass('animated zoomOutDown');
+    removeTask($(this).parents('.task-panel'));
   });
 };
 
@@ -89,6 +123,7 @@ function initDropContainers() {
 $(function() {
   initTaskForm()
   initTasks();
+  initTasksSummary();
   initEventItems();
   initDropContainers();
 });
