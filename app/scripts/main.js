@@ -141,10 +141,17 @@ function initDropContainers() {
   });
 };
 
+/**
+ * カレンダーを初期化する。
+ */
+function initCalendar() {
+};
+
 $(function() {
   initTaskForm()
   initTasks();
   initTasksSummary();
   initEventItems();
   initDropContainers();
+  initCalendar();
 });
