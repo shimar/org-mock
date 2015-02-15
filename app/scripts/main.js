@@ -29,7 +29,10 @@ function initTasks() {
   });
 
   $('.task-panel .trash').bind('click', function(e) {
-    $(this).parents('.task-panel').fadeOut('slow');
+    $(this).parents('.task-panel').one('animationend', function() {
+      $(this).remove();
+    });
+    $(this).parents('.task-panel').addClass('animated zoomOutDown');
   });
 };
 
