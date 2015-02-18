@@ -2,10 +2,10 @@
   "name": "org-mock",
   "private": true,
   "dependencies": {
-    "bootstrap-sass-official": "~3.3.1",
     "fontawesome": "~4.3.0",
     "bootstrap": "~3.3.2",
     "moment": "~2.9.0",
-    "animate.css": "~3.2.0"
+    "animate.css": "~3.2.0",
+    "d3": "~3.5.5"
   }
 }

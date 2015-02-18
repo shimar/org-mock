@@ -106,13 +106,13 @@ gulp.task('wiredep', function () {
   var wiredep = require('wiredep').stream;
 
   // gulp.src('app/styles/*.scss')
-  gulp.css('app/styles/*.less')
+  gulp.src('app/styles/*.less')
     .pipe(wiredep())
     .pipe(gulp.dest('app/styles'));
 
   gulp.src('app/layouts/*.jade')
-    .pipe(wiredep({exclude: ['bootstrap-sass-official']}))
-    .pipe(gulp.dest('app'));
+    .pipe(wiredep({exclude: ['bootstrap/dist', 'fontawesome/css']}))
+    .pipe(gulp.dest('app/layouts'));
 });
 
 gulp.task('watch', ['connect'], function () {
