@@ -43,63 +43,70 @@
 body {
   // padding-top: 70px;
   /* padding-bottom: 20px; */
-  // background-image: url(/images/dark_Tire/dark_Tire.png);
+  background-image: url(/images/dark_Tire/dark_Tire.png);
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  /* padding-left: 15px; */
-  /* padding-right: 15px; */
-}
+@sidebar-width: 160px;
+#wrapper {
+  padding-left: @sidebar-width;
+  #sidebar-wrapper {
+    z-index:     1000;
+    background:  #000;
+    position:    fixed;
+    left:        @sidebar-width;
+    width:       @sidebar-width;
+    height:      100%;
+    margin-left: -@sidebar-width;
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
+    .sidebar-nav {
+      position:   absolute;
+      top:        0;
+      width:      @sidebar-width;
+      margin:     0;
+      padding:    0;
+      list-style: none;
+      .sidebar-brand {
+        height:      65px;
+        font-size:   18px;
+        line-height: 60px;
+        a {
+          color: #999;
+          &:hover {
+            color: #fff;
+            background: none;
+          }
+        }
+      }
 
-  /* Make the masthead heading the same height as the navigation */
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+      li {
+        text-indent: 20px;
+        line-height: 40px;
+        a {
+          display:         block;
+          text-decoration: none;
+          color:           #999;
+          &:hover {
+            text-decoration: none;
+            color:           #fff;
+            background:      rgba(255, 255, 255, .2);
+          }
+          &:active, &:focus {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  #page-content-wrapper {
+    width: 100%;
+    margin-right: -@sidebar-width;
   }
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
 
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
-.sidebar {
-  padding: 15px 0 0 0;
-  .list-group-item {
-    color: #fff;
-    background-color: transparent;
-    border-radius: 0px !important;
-    border: none !important;
-  }
-}
 
 .main {
-  background-image: url(/images/dark_Tire/dark_Tire.png);
+  height: 100%;
   .navbar {
     .navbar-center {
       position: absolute;
@@ -114,6 +121,7 @@ body {
 
 @task-panel-bg: rgba(220, 220, 220, .20);
 #tasks, #task-form-block {
+  height: 100%;
   .summary {
     color: #fff;
     h1 {
@@ -172,7 +180,6 @@ body {
 #agenda {
     position: relative;
     color: @agenda-color;
-    height: 624px;
     overflow-y: hidden;
 
     #alldaylong {
