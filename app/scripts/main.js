@@ -141,6 +141,23 @@ function initDropContainers() {
   });
 };
 
+function initAgenda() {
+  var container = $('#agenda-block');
+  var width  = container.innerWidth();
+  var height = 500;
+  var svg = d3.select('#agenda-block')
+            .append('svg')
+            .attr("width",  width)
+            .attr("height", height);
+
+  svg.append('rect')
+  .attr('x', 0)
+  .attr('y', 0)
+  .attr('width', width)
+  .attr('height', height)
+  .attr('fill', 'rgba(220, 220, 220, 0.2)');
+};
+
 /**
  * カレンダーを初期化する。
  */
@@ -153,5 +170,6 @@ $(function() {
   initTasksSummary();
   initEventItems();
   initDropContainers();
+  initAgenda();
   initCalendar();
 });
