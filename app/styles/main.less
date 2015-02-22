@@ -180,7 +180,6 @@ body {
 #agenda {
     position: relative;
     color: @agenda-color;
-    overflow-y: hidden;
 
     #alldaylong {
       .list-group-item {
@@ -190,13 +189,23 @@ body {
       }
     }
 
+    #agenda-block {
+        height: 100%;
+        svg {
+            position: absolute;
+            top:      0;
+            left:     15;
+            z-index:  100;
+        }
+    }
+
     .event-item {
-        cursor: move;
-        display: block;
-        resize: vertical;
+        cursor:   move;
+        display:  block;
+        resize:   vertical;
         overflow: auto;
         position: absolute;
-        top: 0;
+        top:      0;
     }
 
     .panel {

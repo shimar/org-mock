@@ -141,21 +141,28 @@ function initDropContainers() {
   });
 };
 
+var items = [
+  { title: 'ミーティング',
+    start: moment(),
+    end:   moment().add(1, 'h') }
+];
+
 function initAgenda() {
-  var container = $('#agenda-block');
-  var width  = container.innerWidth();
-  var height = 500;
+  var agendaBlock = $('#agenda-block');
   var svg = d3.select('#agenda-block')
             .append('svg')
-            .attr("width",  width)
-            .attr("height", height);
-
+            .attr({
+              'width':  agendaBlock.width(),
+              'height': agendaBlock.height()
+            });
   svg.append('rect')
-  .attr('x', 0)
-  .attr('y', 0)
-  .attr('width', width)
-  .attr('height', height)
-  .attr('fill', 'rgba(220, 220, 220, 0.2)');
+  .attr('y',     200)
+  .attr('width', agendaBlock.width())
+  .attr('height', 100);
+
+
+  for (var item in items) {
+  }
 };
 
 /**
@@ -171,5 +178,5 @@ $(function() {
   initEventItems();
   initDropContainers();
   initAgenda();
-  initCalendar();
+  // initCalendar();
 });
